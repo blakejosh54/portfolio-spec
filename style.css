@@ -1,27 +1,18 @@
-/*
- * Globals
- */
-*{
+/** GLOBAL*/
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/** HEADER */
 
-
-
-
-/*
- * Base structure
- */
-
-
-
-
-/*
- * Header
- */
-
+.site-header {
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(2px);
+  padding: 0.45rem 2rem;
+  z-index: 9999;
+}
 
 .banner-wrap {
   background-image: url(./assets/banner.jpg);
@@ -29,26 +20,29 @@
   background-repeat: no-repeat;
   background-position: center;
   position: relative;
-  z-index: 1;
- }
- .overlay {
-  z-index: -1;
-  height: 100%;
-  width: 100%;
-  background: black;
-  opacity: 50%;
-  position: absolute;
-  top: 0;
 }
 
-.nav-masthead .nav-link {
-  color: rgba(255, 255, 255, .5);
-  border-bottom: .25rem solid transparent;
+.banner-wrap main{
+  position: relative;
+  z-index: 1;
+}
+
+.overlay{
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,.55);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.nav-masthead .nav-link{
+  color: rgba(255, 255, 255, 0.5);
+  border-bottom: 0.25rem solid transparent;
 }
 
 .nav-masthead .nav-link:hover,
 .nav-masthead .nav-link:focus {
-  border-bottom-color: rgba(255, 255, 255, .25);
+  border-bottom-color: rgba(255, 255, 255, 0.25);
 }
 
 .nav-masthead .nav-link + .nav-link {
@@ -60,9 +54,99 @@
   border-bottom-color: #fff;
 }
 
-.scrolling{
-  background: black;
-  opacity: 70%;
-  transition: all 0.5s ease;
+.nav-masthead .nav-link {
+  color: rgba(255, 255, 255, 0.5);
+  border-bottom: 0.25rem solid transparent;
 }
 
+body:has(#about-me:target) 
+.nav-masthead a[href="#about-me"] {
+  color: #fff;
+  border-bottom-color: #fff;
+}
+
+body:has(#projects:target) 
+.nav-masthead a[href="#projects"] {
+  color: #fff;
+  border-bottom-color: #fff;
+}
+
+body:has(#contact:target) 
+.nav-masthead a[href="#contact"] {
+  color: #fff;
+  border-bottom-color: #fff;
+}
+
+body:not(:has(section:target))
+.nav-masthead a[href="#top"] {
+  color: #fff;
+  border-bottom-color: #fff;
+}
+
+/* LETS CONNECT */
+
+.hl-block{
+  display: inline;
+  background: #fff3cd;
+  padding: 0.1em 0.25em;
+  border-radius: 0;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  line-height: 1.2;
+}
+
+/* DARK MODE */
+
+.form-control:focus,
+  textarea.form-control:focus {
+    background-color: #0f1622 !important;
+    color: #e9eef5;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 0.15rem rgba(59, 130, 246, 0.35);
+  }
+
+  .form-control::placeholder,
+  textarea::placeholder {
+    color: #9aa4b2 !important;
+    opacity: 1;
+  }
+
+  .form-control:focus::placeholder,
+  textarea:focus::placeholder {
+    color: #9aa4b2 !important;
+    opacity: 1;
+  }
+
+  /* RESUME PRINT */
+
+.resume-print { display: none; }
+
+  @media print {
+  header, .banner-wrap, #about-me, #projects, #contact, footer {
+    display: none !important;
+  }
+
+  .resume-print {
+    display: block !important;
+  }
+
+  body {
+    background: #fff !important; color: #000 !important
+  }
+
+  * {
+    box-shadow: none !important; text-shadow: none !important;
+  }
+
+  h1, h2 {
+    page-break-after: avoid;
+  }
+
+  ul, p {
+    page-break-inside: avoid;
+  }
+
+  .resume-print {
+    margin: 0 !important; padding: 0 !important;
+  }
+}

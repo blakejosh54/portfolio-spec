@@ -1,0 +1,63 @@
+@media (min-width: 992px) {
+  .profile-img-wrap {
+    max-width: 280px;
+  }
+}
+
+@media (max-width: 767px) {
+  .profile-img-wrap {
+    margin: 0 auto;
+    max-width: 420px;
+  }
+}
+
+@media (max-width: 576px) {
+  .site-header {
+    padding: 0.4rem 1rem;
+  }
+
+  .site-header h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .nav-masthead .nav-link {
+    padding: 0.25rem 0.4rem;
+    font-size: 0.85rem;
+  }
+}
+
+@media (min-width: 576px) {
+  .profile-img-wrap {
+    margin: 0;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background: #0b0f14 !important;
+    color: #e9eef5;
+  }
+
+  .card {
+    background: #111824;
+    color: #e9eef5;
+  }
+
+  .form-control,
+  textarea {
+    background: #0f1622;
+    color: #e9eef5;
+    border-color: #2b3a4d;
+  }
+
+  .hl-block {
+    background: #2a2212;
+    color: black;
+  }
+
+  footer {
+    background: #05070a !important;
+    color: #e9eef5 !important;
+  }
+}
